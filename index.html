@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="./assets/icomoon/style.css">
+
+	<style type="text/css">
+
+		header {
+			min-height: 100px;
+			background-color: #006dcc;
+  			margin-bottom: 20px;
+  			align-items: center;
+			display: flex;
+			position: fixed;
+			width: 100%;
+			transition: transform 0.25s ease-in-out;
+			/*font-style: italic;*/
+  		}
+
+		header .d-flex.justify-content-between > div {
+			display: flex;
+		}
+
+		header .d-flex.justify-content-between > div > * { 
+			vertical-align: middle;
+		}
+
+		header .d-flex.justify-content-between > a,
+		header .d-flex.justify-content-between a,
+		header .d-flex.justify-content-between > div > a,
+		header .d-flex.justify-content-between .dropdown {
+			margin-right: 30px;
+			font-size: 20px;
+			text-decoration: none;
+		}
+
+		header .d-flex.justify-content-between .dropdown a {
+			margin-right: 0px;
+		}
+
+		header .d-flex.justify-content-between > div > div:last-child a,
+		header .d-flex.justify-content-between > div *:last-child {
+			margin-right: 0;
+		}
+
+		header .d-flex.justify-content-between a, 
+		header .d-flex.justify-content-between .up, 
+		header .d-flex.justify-content-between .down {
+			color: #FFF;
+		}
+
+		.header-unpin{
+			/* display: none; */
+			transform: translateY(-100%);
+		}
+
+		.header-pin{
+			/* display: block; */
+			transform: translateY(0);
+		}
+
+		#home_link {
+			text-decoration: none;
+			font-style: italic;
+			color: #4dff4d;
+			width: 50%;
+			font-family: Harlow;
+		}
+
+		#name_first {
+			float: left;
+			font-size: 5rem;
+		}
+
+		#name {
+			margin: -50px 0px 5px 40px;
+			font-size: 2rem;
+		}
+
+		#info {
+			/*padding-top: 1.5rem;*/
+			/*padding-left: 30px;*/
+			/*display: inline-block;*/
+			color: #FFF;
+			margin-top: 20px;
+		}
+
+		.main {
+			padding-top: 140px;
+		}
+
+		.main .work img {
+			max-width: 100%;
+			max-height: 70px;
+			margin: 0px 20px;
+			margin-bottom: 10px;
+		}
+
+		.main .work [alt="laravel"],
+		.main .work [alt="yii2"],
+		.main .work [alt="git"],
+		.main .work [alt="jquery"],
+		.main .work [alt="meest"],
+		.main .work [alt="payeer"],
+		.main .work [alt="nodejs"] {
+			height: 50px;
+		}
+
+		.main .work [alt="amazon"],
+		.main .work [alt="ebay"],
+		.main .work [alt="etsy"] {
+			/*height: 60px;*/
+		}
+
+		.main .work [alt="design"] {
+			min-height: 90px;
+		}
+
+		.main .work [alt="AuthorizeNet"] {
+			/*height: 40px;*/
+		}
+
+		.main .work .logo_group {
+			/*border: 2px solid black;*/
+			/*border-radius: 10px;*/
+			/*display: grid;*/
+			/*flex-direction: column;*/
+			/*justify-content: space-between;*/
+			margin-bottom: 20px;
+		}
+
+		.main .work .logo_title {
+			font-weight: bold;
+			font-size: 26px;
+			align-self: center;
+			text-align: center;
+			border-bottom: 2px solid black;
+		}
+
+		.main .work .logo_container {
+			justify-content: space-around;
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			border: 2px solid black;
+			border-top-color: black;
+			border-top-style: solid;
+			border-top-width: 2px;
+			border-top-color: black;
+			border-top-style: solid;
+			border-top-width: 3px;
+			border-top: none;
+			border-radius: 0px 0px 10px 10px;
+			padding-top: 30px;
+			height: 600px;
+			padding: 0px 5px;
+			box-shadow: 14px 10px 5px #a2917091;
+		}
+
+		.main .title_row .title {
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+			margin-bottom: 30px;
+			padding: 20px;
+		}
+
+		.main .title_row .title span {
+			display: inline-block;
+			min-width: min-content;
+			width: 40%;
+			padding: 20px;
+			border: 1px solid grey;
+			border-radius: 50px;
+			background-color: #39ace3;
+			box-shadow: 10px 10px 10px grey;
+			font-family: math;
+			color: #FFF;
+			text-transform: uppercase;
+		}
+
+		.main > .row:last-child {
+			margin-bottom: 50px !important;
+		}
+
+		#industry_experience > .row {
+			box-sizing: content-box;
+		}
+
+		#industry_experience img {
+			width: 100%;
+		}
+
+		#industry_experience .company_position {
+			font-style: italic;
+			color: #006dcc;
+		}
+
+		.separator {
+			width: 100%;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			border-top: 2px solid #39ace3;
+			opacity: 0.5;
+		}
+
+		.table .row {
+			margin-bottom: 20px;
+		}
+
+		.table .row > div:first-child {
+			font-style: italic;
+			color: #006dcc;
+		}
+
+		.table .row a {
+			padding: unset;
+		}
+
+		small i {
+			color: grey;
+		}
+
+		.col-lg-7 img {
+			/*padding-right: 5%;*/
+			/*padding-bottom: 5%;*/
+			width: 100%;
+			/*padding: 10px;*/
+			/*background-color: #a29170;*/
+			box-shadow: 14px 10px 5px #a2917091;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			/*border: 1px solid black;*/
+		}
+
+		.workplace_name{
+			font-size: 22px;
+		}
+
+		.main > .row:not(.title_row) {
+			padding: 20px;
+			border: 2px solid gray;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			/*background-color: #f2eeee;*/
+		}
+
+/*		.main > .row:nth-of-type(odd) > .div:first-child {
+			order: 2;
+		}
+*/
+		.main > .row:nth-of-type(odd) > .col-lg-5 {
+			padding-left: 30px;
+		}
+
+		.main > .row:nth-of-type(even) > .col-lg-5 {
+			padding-right: 30px;
+		}
+
+		.d-flex.justify-content-between {
+			align-items: center;
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			left: 0px;
+			padding-top: 5px;
+			background-color: #006dcc;
+			/*width: 120%;*/
+			padding: 10px 20px;
+			margin-left: 20px;
+			box-sizing: content-box;
+		}
+
+		.dropdown-content a { 
+			display: block;
+		}
+
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		.dropdown .dropdown-content ul {
+			padding-left: 10px;
+			list-style: disclosure-closed;
+			color: #FFF;
+			margin: 0px;
+			margin-left: 20px;
+		}
+
+		.dropdown .dropdown-content ul li {
+			margin-bottom: 5px;
+		}
+
+		.dropdown .dropdown-content ul li:last-child {
+			margin-bottom: 0px;
+		}
+
+		.up {
+			display: none;
+		}
+
+		.dropdown:hover .down {
+			display: none;
+		}
+
+		.dropdown:hover .up {
+			display: inline;
+		}
+
+		.main .location {
+			padding-left: 0px;
+		}
+
+		.publications_body .row {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+		}
+		
+		.publications_body .row {
+			margin-bottom: 20px;
+		}
+
+		.publications_body .row .title {
+			font-style: italic;
+			color: #006dcc;
+		}
+
+		.publications_body .row .separator {
+			margin-top: 20px;
+			margin-bottom: 0px;
+		}
+
+		.publications_body .row:last-child .separator {
+			display: none;
+		}
+
+		footer {
+			min-height: 200px;
+			background-color: #24246a;
+			color: #FFF;
+			padding: 20px 0;
+  			/*margin-bottom: 20px;*/
+		}
+
+		footer a {
+			color: #FFF;
+		}
+
+/*		footer .sitemap_container {
+			justify-content: space-around;
+			display: flex;
+			flex-flow: row wrap;
+		}
+*/
+		footer .row > div p:first-child {
+			text-align: center;
+		}
+
+		footer .links div {
+			margin-bottom: 20px;
+		}
+
+		footer div a {
+			/*padding-right:20px;*/
+			text-decoration:none;
+		}
+
+		footer div a [class^="icon-"] {
+			font-size: 30px;
+			/*width: 20px;*/
+			/*height: 20px;*/
+		}
+
+		footer div a [class^="icon-"]:last-child {
+			padding-right:0;
+		}
+
+	</style>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<header id="header" class="header">
+		<div class="container">
+			<div class="row">
+				<div class="d-flex justify-content-between"> 
+					<a id="home_link" href="index.html" title="">						
+						<!-- <span id="name_first">E</span> -->
+						<p id="info">Personal webspace of</p>
+						<!-- <br> -->
+						<p id="name"><span style="font-family: URW Chancery L, cursive; font-size: 70px">Y</span>evhen&#160;TKACHENKO</p>
+					</a>
+					<!-- <span>Eugene (Yevhen) TKACHENKO's<br>personal web space</span> -->
+					<div>
+						<div class="dropdown">
+							<a href="#academic" title="">Academic</a>
+							<span class="up">&#9650;</span>
+							<span class="down">&#9660;</span>
+							<div class="dropdown-content">
+								<ul>
+								<li><a href="#academic">Career</a></li>
+								<li><a href="#publications">Publications</a></li>
+								<li><a href="#conferences">Conferences</a></li>
+							</ul>
+							</div>
+						</div>
+						<div class="dropdown">
+							<a href="#industry" title="Industry Experience">Industry</a>
+							<span class="up">&#9650;</span>
+							<span class="down">&#9660;</span>
+							<div class="dropdown-content">
+								<ul>
+									<li><a href="#industry">Experience</a></li>
+									<li><a href="#technology_stack">Technology stack</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="dropdown">
+							<a href="" title="">Education</a>
+							<span class="up">&#9650;</span>
+							<span class="down">&#9660;</span>
+							<div class="dropdown-content">
+								<ul>
+									<li><a href="#upmc">PhD</a></li>
+									<li><a href="#orleans">Master 2</a></li>
+									<li><a href="#knu">Bachelor&#160;& Master</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- <a href="" title=""></a> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</header><!-- /header -->
+
+	<div id="app" class="main container">
+
+		<div id="industry" class="row title_row">
+			<p class="title">
+				<span>Industry experience</span>
+			</p>
+		</div>
+
+		<div id="industry_experience" class="row">
+			<div class="row">
+				<div class="col-1">
+					<img src="./assets/images/work/shipoko.jpg" alt="Shipoko" style="margin: -50px 0px; z-index: -1; position: relative;">
+				</div>
+				<div class="col-2">
+					Shipoko
+				</div>
+				<div class="col-3">
+					<p class="company_position">Full Stack Web Developer</p>
+					Jul 2020 - Sep 2020<br>
+					(3 months)
+				</div>
+				<div class="col-6">
+					B2B Logistical solutions for Web<br>
+					<ul>
+						<li>Application and DB design and scaling</li>
+						<li>API development and integration</li>
+						<li>Export/import routines</li>
+					</ul>
+				</div>
+			</div>
+			<hr class="separator">
+			<div class="row">
+				<div class="col-1">
+					<img src="./assets/images/work/asabix.svg" alt="Asabix">
+				</div>
+				<div class="col-2">
+					Asabix
+				</div>
+				<div class="col-3">
+					<p class="company_position">Backend Tech Lead,<br>
+					Full Stack Web Developer</p>
+					Sep 2017 - Mar 2020<br>
+					(2 years 7 months)
+				</div>
+				<div class="col-6">
+					B2B, B2C solutions for Web<br>
+					<ul>
+						<li>Web Projects Development, as well from scratch</li>
+						<li>Supervision of final stages of different projects</li>
+						<li>Extension of the functionality beyond the standard, overlapping the frameworks' inner logic</li>
+					</ul>
+				</div>
+			</div>
+			<hr class="separator">
+			<div class="row">
+				<div class="col-1">
+					<img src="./assets/images/work/rit.png" alt="Ukrainian Scientific Center for IT Development">
+				</div>
+				<div class="col-2">
+					 Ukrainian Scientific Center for IT Development
+				</div>
+				<div class="col-3">
+					<p class="company_position">Python Developmenteloper for ArcGIS</p>
+					Feb 2017 - Dec 2017<br>
+					(11 months)
+				</div>
+				<div class="col-6">
+					Logistical solutions<br>
+					<ul>
+						<li>Implementation of automatic routine for data processing and troubleshooting</li>
+						<li>Creation of a fully automatic ArcMap extension for logistical purposes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="technology_stack" class="row title_row">
+			<div class="col">
+			<p class="title">
+				<span>Technology stack</span>
+			</p></div>
+		</div>
+
+		<div id="asabix" class="row work">
+
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Shipments APIs</p>
+				<div class="logo_container">
+					<img class="mx-lg-0" src="./assets/images/work/amazon.png" alt="amazon">
+					<img class="mx-lg-0" src="./assets/images/work/ebay.png" alt="ebay">
+					<img class="mx-lg-0" src="./assets/images/work/etsy.png" alt="etsy">
+					<img class="mx-lg-0" src="./assets/images/work/ukrposhta.png" alt="ukrposhta">
+					<img class="mx-lg-0" src="./assets/images/work/meest.png" alt="meest">
+					<img class="mx-lg-0" src="./assets/images/work/novaposhta.png" alt="novaposhta">
+					<img class="mx-lg-0" src="./assets/images/work/dhl2.png" alt="dhl">
+					<img class="mx-lg-0" src="./assets/images/work/fedex.png" alt="fedex">
+				</div>
+			</div>
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Payment systems APIs</p>
+				<div class="logo_container">
+					<img class="mx-lg-0" src="./assets/images/work/advcash.png" alt="advcash">
+					<img class="mx-lg-0" src="./assets/images/work/liqpay.png" alt="liqpay">
+					<img class="mx-lg-0" src="./assets/images/work/Authorize.Net.png" alt="AuthorizeNet">
+					<!-- <img src="./assets/images/work/liqpay2.png" alt="liqpay2"> -->
+					<img class="mx-lg-0" src="./assets/images/work/paypal.png" alt="paypal">
+					<img class="mx-lg-0" src="./assets/images/work/payoneer.png" alt="payoneer">
+					<img class="mx-lg-0" src="./assets/images/work/paye	er.png" alt="payeer">
+					<img class="mx-lg-0" src="./assets/images/work/payu.png" alt="payu">
+					<img class="mx-lg-0" src="./assets/images/work/privatbank2.png" alt="privatbank2">
+					<!-- <img src="./assets/images/work/privatbank.png" alt="privatbank"> -->
+					<img class="mx-lg-0" src="./assets/images/work/zotapay.webp" alt="zotapay">
+				</div>
+			</div>
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Other APIs</p>
+				<div class="logo_container">
+					<img class="mx-lg-0" src="./assets/images/work/google2.png" alt="google">
+					<img class="mx-lg-0" src="./assets/images/work/gmail2.png" alt="gmail">
+					<img class="mx-lg-0" src="./assets/images/work/youtube.png" alt="youtube">
+					<img class="mx-lg-0" src="./assets/images/work/facebook.png" alt="facebook">
+					<img class="mx-lg-0" src="./assets/images/work/esputnik.svg" alt="esputnik">
+					<img class="mx-lg-0" src="./assets/images/work/instagram.webp" alt="instagram">
+					<img class="mx-lg-0" src="./assets/images/work/smsfly.png" alt="smsfly">
+					<img class="mx-lg-0" src="./assets/images/work/twilio.png" alt="twilio">
+				</div>
+			</div>
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Backend</p>
+				<div class="logo_container">
+					<img class="mx-lg-0" src="./assets/images/work/php.png" alt="php">
+					<img class="mx-lg-0" src="./assets/images/work/sql.png" alt="sql">
+					<!-- <img src="./assets/images/work/laravel.png" alt="laravel"> -->
+					<img class="mx-lg-0" src="./assets/images/work/design.jpg" alt="design">
+					<img class="mx-lg-0" src="./assets/images/work/oop.png" alt="oop">
+					<img class="mx-lg-0" src="./assets/images/work/redis.png" alt="redis">
+					<img class="mx-lg-0" src="./assets/images/work/regex.png" alt="regex">
+					<img class="mx-lg-0" src="./assets/images/work/api.png" alt="api">
+					<img class="mx-lg-0" src="./assets/images/work/symfony2.png" alt="symfony">
+					<img class="mx-lg-0" class="laravel" src="./assets/images/work/laravel3.png" alt="laravel">
+					<img class="mx-lg-0" src="./assets/images/work/yii2.png" alt="yii2">
+					<!-- <img src="./assets/images/work/rest_api.webp" alt="rest_api"> -->
+					<!-- <img src="./assets/images/work/bitrix.png" alt="bitrix"> -->
+				</div>
+			</div>
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Frontend</p>
+				<div class="logo_container">
+					<!-- <img src="./assets/images/work/html5.png" alt="html5"> -->
+					<!-- <img src="./assets/images/work/css3.png" alt="css3"> -->
+					<!-- <img src="./assets/images/work/js.png" alt="js"> -->
+					<img class="mx-lg-0" src="./assets/images/work/hcj.jpeg" alt="html5 css3 java script">
+					<img class="mx-lg-0" src="./assets/images/work/vue2.png" alt="vue">
+					<img class="mx-lg-0" src="./assets/images/work/react2.png" alt="react">
+					<img class="mx-lg-0" src="./assets/images/work/nuxt.png" alt="nuxt">
+					<img class="mx-lg-0" src="./assets/images/work/google_maps.webp" alt="google_maps">
+					<img class="mx-lg-0" src="./assets/images/work/nodejs.svg" alt="nodejs">
+					<img class="mx-lg-0" src="./assets/images/work/jquery.png" alt="jquery">
+				</div>
+			</div>
+			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Environment</p>
+				<div class="logo_container">	
+					<img class="mx-lg-0" src="./assets/images/work/nginx2.png" alt="nginx">
+					<img class="mx-lg-0" src="./assets/images/work/apache.png" alt="apache">
+					<img class="mx-lg-0" src="./assets/images/work/git.png" alt="git">
+					<img class="mx-lg-0" src="./assets/images/work/github.png" alt="github">
+					<img class="mx-lg-0" src="./assets/images/work/gitlab.png" alt="gitlab">
+					<img class="mx-lg-0" src="./assets/images/work/linux.png" alt="linux">
+					<img class="mx-lg-0" src="./assets/images/work/atlassian.png" alt="atlassian">
+					<img class="mx-lg-0" src="./assets/images/work/postman.png" alt="postman">
+					<img class="mx-lg-0" src="./assets/images/work/bash.png" alt="bash">
+					<!-- <img class="mx-lg-0" src="./assets/images/work/scrum.png" alt="scrum"> -->
+				</div>
+			</div>
+<!-- 			<div class="col-lg-4 logo_group">
+				<p class="logo_title">Environment2</p>
+				<div class="logo_container">	
+					<img class="mx-lg-0" src="./assets/images/work/python.png" alt="python">
+					<img class="mx-lg-0" src="./assets/images/work/latex.png" alt="latex">
+					<img class="mx-lg-0" src="./assets/images/work/matlab.png" alt="matlab">
+					<img class="mx-lg-0" src="./assets/images/work/c_c++.png" alt="C/C++">
+				</div>
+			</div>
+ -->		</div>	
+		
+		<div id="academic" class="row title_row">
+			<p class="title">
+				<span>Academic experience</span>
+			</p>
+		</div>
+
+		<div id="upmc" class="row">
+
+			<div class="col-lg-7 mb-4 mb-lg-0">
+				<img src="./assets/images/upmc.jpg" alt="">
+			</div>
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-between"> 
+					<!-- <p> -->
+						<a  class="workplace_name"
+							target="_blank" 
+							href="https://lerma.obspm.fr/?lang=fr" 
+							title="">
+							LERMA
+						</a>
+					<!-- </p> -->
+					<!-- <div style="width: 80%"> -->
+						<img class="col-5" src="./assets/images/logo/logo_lerma.png" alt="LERMA">
+						<img class="col-3" src="./assets/images/logo/logo_SU.png" alt="Sorbonne Université">
+					<!-- </div> -->
+				</div>
+				<p> 
+					<small> 
+						<i>
+							Laboratoire d’Études du Rayonnement et  de la Matière <br> en Astrophysique et Atmosphères
+						</i> 
+					</small> 
+				<p>
+				<div class="table">
+					<div class="row">
+						<div class="col-3">
+							Position
+						</div>
+						<div class="col-9">
+							PhD Student
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							University
+						</div>
+						<div class="col-9">
+							Sorbonne Université (Campus Pierre et Marie Curie)
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Affiliation
+						</div>
+						<div class="col-9">
+							Sorbonne Université,<br> Observatoire de Paris, <br>PSL Research University,<br> LERMA, CNRS UMR 8112						
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							University Ranking in 2021
+						</div>
+						<div class="col-9">
+							<i class="location">In France</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Top 1,<br>
+							<i class="location">In the World</i>- Top 50 (43),<br>
+							accoring to <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2021" title="Round University Ranking">Round University Ranking</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Address
+						</div>
+						<div class="col-9">
+							4 place Jussieu<br>
+							75252 Paris Cedex 05<br>
+							France<br>
+							<a target="_blank" href="https://www.google.com/maps/place/Sorbonne+University+Pierre+and+Marie+Curie+Campus/@48.8471036,2.357499,15z/data=!4m5!3m4!1s0x0:0xf0b82c4672cb0c0!8m2!3d48.8471036!4d2.357499?hl=en" title="UPMC map">See on the map</a>
+						</div>
+					</div>
+				</div>
+				<a target="_blank" href="" title=""></a>
+			</div>
+		</div>
+
+		<div id="latmos" class="row">
+
+			<div class="col-lg-7 mb-4 mb-lg-0 order-lg-1">
+				<img src="./assets/images/latmos.jpg" alt="">
+			</div>			
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-between"> 
+					<p>
+						<a  class="workplace_name"
+							target="_blank" 
+							href="https://www.latmos.ipsl.fr/index.php/en/" 
+							title="">
+							LATMOS
+						</a>
+					</p>
+					<img class="col-4" src="./assets/images/logo/latmos.png" alt="LATMOS">
+				</div>
+				<p>
+					<small>
+						<i>
+							Laboratoire Atmosphères, Observations Spatiales
+						</i>
+					</small>
+				</p>
+				<div class="row">
+					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
+					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
+				</div>
+				<div class="table">
+					<div class="row">
+						<div class="col-3">
+							Position
+						</div>
+						<div class="col-9">
+							Intern
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Thesis
+						</div>
+						<div class="col-9">
+							Emissions X dans l’environnement proche de la Terre: Simulations numériques en préparation de la mission SMILE
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Period
+						</div>
+						<div class="col-9">
+							March 2021 - 
+							July 2021
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Address
+						</div>
+						<div class="col-9">
+							4 place Jussieu<br>
+							75252 Paris Cedex 05<br>
+							France<br>
+							<a target="_blank" href="https://www.google.com/maps/place/Sorbonne+University+Pierre+and+Marie+Curie+Campus/@48.8471036,2.357499,15z/data=!4m5!3m4!1s0x0:0xf0b82c4672cb0c0!8m2!3d48.8471036!4d2.357499?hl=en" title="UPMC map">See on the map</a>
+						</div>
+					</div>
+				</div>
+				<a target="_blank" href="" title=""></a>
+			</div>
+		</div>
+
+		<div id="lpcee" class="row">
+			
+			<div class="col-lg-7 mb-4 mb-lg-0">
+				<img src="./assets/images/lpcee.jpg" alt="LPCEE">
+			</div>
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-between"> 
+					<p>
+						<a  class="workplace_name"
+							target="_blank" 
+							href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiX49bUmKP6AhUHhhoKHX67A3EQFnoECAgQAQ&url=https%3A%2F%2Fwww.lpc2e.cnrs.fr%2F&usg=AOvVaw2UtTkQQA4DF3Il7lb_taY4" 
+							title="LPCEE">
+							LPCEE
+						</a>
+					</p>
+					<img class="col-3" src="./assets/images/logo/lpcee.jpeg" alt="LPCEE" style="width: 20%">
+				</div>
+				<div class="row">
+					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
+					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
+				</div>
+				<div class="table">
+					<div class="row">
+						<div class="col-3">
+							Position
+						</div>
+						<div class="col-9">
+							Intern
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Thesis
+						</div>
+						<div class="col-9">
+						 	Détecteur de rayons gamma STRATELEC
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Period
+						</div>
+						<div class="col-9">
+							January 2021 - 
+							February 2021
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Address
+						</div>
+						<div class="col-9">
+							3 Av. de la Recherche Scientifique<br>
+							45071 Orléans<br>
+							France<br>
+							<a target="_blank" href="https://www.google.com/maps/place/LPC2E/@47.8367085,1.9434909,15z/data=!4m5!3m4!1s0x0:0x8c27938442d26284!8m2!3d47.836794!4d1.9432469?hl=en" title="LPCEE">See on the map</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="orleans" class="row">
+
+			<div class="col-lg-7 mb-4 mb-lg-0 order-lg-1">
+				<img src="./assets/images/orleans.jpg" alt="">
+			</div>			
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-between"> 
+					<p>
+						<a  class="workplace_name"
+							target="_blank" 
+							href="https://lerma.obspm.fr/?lang=fr" 
+							title="">
+							Université d'Orléans
+						</a>
+					</p>
+					<img class="col-4" src="./assets/images/logo/orleans_2.png" alt="Université d'Orléans">
+				</div>
+				<div class="row">
+					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
+					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
+				</div>
+				<div class="table">
+					<div class="row">
+						<div class="col-3">
+							Dispoma
+						</div>
+						<div class="col-9">
+							Master in Space Science
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<a href="#latmos" title="LATMOS">Internship 2 Thesis</a>
+						</div>
+						<div class="col-9">
+							Emissions X dans l’environnement proche de la Terre: Simulations numériques en préparation de la mission SMILE
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							<a href="#lpcee" title="LPCEE">Internship 1 Thesis</a>
+						</div>
+						<div class="col-9">
+							Détecteur de rayons gamma STRATELEC
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Period
+						</div>
+						<div class="col-9">
+							October 2020 - 
+							July    2021		
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							University Ranking in 2020
+						</div>
+						<div class="col-9">
+							<i class="location">In France</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Top 50 (39),<br>
+							<i class="location">In the World</i>- Top 1000 (840),<br>
+							accoring to <a target="_blank" href="https://cwur.org/2020-21/University-of-Orl%C3%A9ans.php" title="World University Rankings">World University Rankings</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Address
+						</div>
+						<div class="col-9">
+							Château de la Source<br>
+							Avenue du Parc Floral<br>
+							45067 Orléans Cedex 2<br>
+							France<br>
+							<a target="_blank" href="https://www.google.com/maps/place/University+of+Orl%C3%A9ans/@47.8453037,1.9339062,15z/data=!4m5!3m4!1s0x0:0xac7ec39ea8a443a2!8m2!3d47.8453037!4d1.9339062?hl=en" title="UPMC map">See on the map</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="knu" class="row">
+			
+			<div class="col-lg-7 mb-4 mb-lg-0">
+				<img src="./assets/images/knu_red.jpg" alt="">
+			</div>
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-between"> 
+					<p>
+						<a  class="workplace_name"
+							target="_blank" 
+							href="https://knu.ua/en/" 
+							title="Taras Shevchenko National University of Kyiv">
+							Taras Shevchenko National<br> University of Kyiv
+						</a>
+					</p>
+					<img class="col-3" src="./assets/images/logo/knu.png" alt="Taras Shevchenko National University of Kyiv">
+				</div>
+				<div class="row">
+					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
+					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
+				</div>
+				<div class="table">
+					<div class="row">
+						<div class="col-3">
+							Dispomas
+						</div>
+						<div class="col-9">
+							Master in Space Physics (with honour)<br>
+							Bachelor in Physics
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Thesis
+						</div>
+						<div class="col-9">
+						 	Nonline ar wave processes in inhomogeneous ionosphere
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Period
+						</div>
+						<div class="col-9">
+							September 2011 - 
+							July      2017		
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							University Ranking in 2011
+						</div>
+						<div class="col-9">
+							<i class="location">In Ukraine</i>&nbsp;&nbsp;&nbsp; - Top 1,<br>
+							<i class="location">In the World</i>- Top 500 (468),<br>
+							accoring to <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2011" title="Round University Ranking">Round University Ranking</a>
+							<!-- <i class="location">In the World</i>- Top 1000 (778),<br> -->
+							<!-- accoring to <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjp6vPQqZ76AhUK04UKHZFFDDcQFnoECAQQAQ&url=https%3A%2F%2Fwww.scimagoir.com%2Frankings.php%3Fsector%3DHigher%2Beduc.%26country%3DUKR%26year%3D2005&usg=AOvVaw1FetKVpSUMvmuJbHFUblIt" title="Scimago Institutions Ranking">Scimago</a> -->
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-3">
+							Address
+						</div>
+						<div class="col-9">
+							Akademika Hlushkova Ave, 4<br>
+							Kyiv<br>
+							Ukraine<br>
+							03680<br>
+							<a target="_blank" href="https://www.google.com/maps/place/Faculty+of+Physics+Taras+Shevchenko+National+University+of+Kyiv/@50.3810231,30.4708087,17z/data=!3m1!4b1!4m5!3m4!1s0x40d4c8faaf94ca97:0xf17bffc5cb4b3c!8m2!3d50.3810231!4d30.4729974?hl=en" title="Taras Shevchenko National University of Kyiv">See on the map</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="publications" class="row title_row">
+			<p class="title">
+				<span>Publications</span>
+			</p>
+		</div>
+
+		<div class="row publications_body">
+			<div v-for="(item, key) in publications" class="row">
+				<div class="col-lg-10">
+					<div class="authors">{{ (key + 1)}}) {{ item.authors }}</div>
+					<div class="title">”{{ item.title }}”</div>
+					<div class="info">{{ item.info }}</div>
+				</div>
+				<div class="col-lg-1">{{ item.year }}</div>
+				<div class="col-lg-1">{{ item.platform }}</div>
+				<hr class="separator">
+			</div>
+		</div>
+
+		<div id="conferences" class="row title_row">
+			<p class="title">
+				<span>Conferences</span>
+			</p>
+		</div>
+
+		<div class="row publications_body">
+			<div v-for="(item, key)  in conferences" class="row">
+				<div class="col-lg-10">
+					<div class="authors">{{ (key + 1)}}) {{ item.authors }}</div>
+					<div class="title">”{{ item.title }}”</div>
+					<div class="info">{{ item.info }}</div>
+				</div>
+				<div class="col-lg-1">{{ item.year }}</div>
+				<div class="col-lg-1">{{ item.platform }}</div>
+				<hr class="separator">
+			</div>
+		</div>
+
+
+<!-- 		<div class="row">
+			
+			<div class="col-lg-5"></div>
+			<div class="col-lg-7">
+				<img src="./assets/images/knu_red.jpg" alt="">
+			</div>
+		</div>
+		<div class="row">
+			
+			<div class="col-lg-7">
+				<img src="./assets/images/knu_red_1.jpg" alt="">
+			</div>
+		</div>
+		<div class="row">
+			
+			<div class="col-lg-5"></div>
+			<div class="col-lg-7">
+				<img src="./assets/images/knu_red_2.jpg" alt="">
+			</div>
+		</div>
+ -->
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<p>Sitemap</p>
+					<div class="sitemap_container row">
+						<div class="col-4">
+							<a href="#industry" title="Industry Experience">Industry</a>
+							<ul>
+								<li><a href="#industry">Experience</a></li>
+								<li><a href="#technology_stack">Technology stack</a></li>
+							</ul>
+						</div>
+						<div class="col-4">
+							<a href="#academic" title="">Academic</a>
+							<ul>
+								<li><a href="#academic">Career</a></li>
+								<li><a href="#publications">Publications</a></li>
+								<li><a href="#conferences">Conferences</a></li>								
+							</ul>
+						</div>
+						<div class="col-4">
+							<a href="" title="">Education</a>
+							<ul>
+								<li><a href="#upmc">PhD</a></li>
+								<li><a href="#orleans">Master 2</a></li>
+								<li><a href="#knu">Bachelor&#160;& Master</a></li>								
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-3">
+					<p>Links</p>
+					<p></p>
+					<div class="row d-flex justify-content-between links">
+						<div class="col-12 d-flex justify-content-around">
+							<a target="_blank" href="https://www.linkedin.com/in/yevhentkachenko/" title="LinkedIn">
+								<i class="icon-linkedin"></i>
+							</a>
+							<a target="_blank" href="https://www.researchgate.net/profile/Yevhen-Tkachenko" title="ResearchGate">
+								<i class="icon-researchgate"></i>
+							</a>
+						</div>
+						<div class="col-12 d-flex justify-content-around">
+							<a target="_blank" href="https://orcid.org/0000-0002-1864-9364" title="Orcid">
+								<i class="icon-orcid"></i>
+							</a>
+							<a target="_blank" href="https://scholar.google.com/citations?user=CyuGFYMAAAAJ" title="GoogleScholar">
+								<i class="icon-googlescholar"></i>
+							</a>
+						</div>
+						<div class="col-12 d-flex justify-content-around">
+							<a target="_blank" href="https://github.com/eugen-tkachenko" title="github">
+								<i class="icon-github"></i>
+							</a>
+							<a href="mailto:eugen.n.tkachenko@gmail.com?subject=greetings" title="Email me">
+								<i class="icon-gmail"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-3 text-center">
+					<p>About</p>
+					<p></p>
+					<p>This is the homepage of<br>
+					<i>Yevhen (Eugene) TKACHENKO</i></p>
+					<p>Developed by himself</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+
+		var lastKnownScrollY = 0;
+		var currentScrollY = 0;
+		var ticking = false;
+		var idOfHeader = 'header';
+		var eleHeader = null;
+		const classes = {
+		  pinned: 'header-pin',
+		  unpinned: 'header-unpin',
+		};
+		function onScroll() {
+		  currentScrollY = window.pageYOffset;
+		  requestTick();
+		}
+		function requestTick() {
+		  if (!ticking) {
+		    requestAnimationFrame(update);
+		  }
+		  ticking = true;
+		}
+		function update() {
+		  if (currentScrollY < lastKnownScrollY) {
+		    pin();
+		  } else if (currentScrollY > lastKnownScrollY) {
+		    unpin();
+		  }
+		  lastKnownScrollY = currentScrollY;
+		  ticking = false;
+		}
+		function pin() {
+		  if (eleHeader.classList.contains(classes.unpinned)) {
+		    eleHeader.classList.remove(classes.unpinned);
+		    eleHeader.classList.add(classes.pinned);
+		  }
+		}
+		function unpin() {
+		  if (eleHeader.classList.contains(classes.pinned) || !eleHeader.classList.contains(classes.unpinned)) {
+		    eleHeader.classList.remove(classes.pinned);
+		    eleHeader.classList.add(classes.unpinned);
+		  }
+		}
+		window.onload = function() {
+		  eleHeader = document.getElementById(idOfHeader);
+		  document.addEventListener('scroll', onScroll, false);
+		}
+
+		const PUBLICATION_TYPE_PAPER 				= 0;
+		const PUBLICATION_TYPE_CHAPTER 			= 1;
+		const PUBLICATION_TYPE_CONFERENCE_PAPER 	= 2;
+		const PUBLICATION_TYPE_POSTER 			= 3;
+
+		function sortByKey(array, key) {
+		    return array.sort(function(a, b) {
+		        var x = a[key]; var y = b[key];
+		        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+		    });
+		}
+
+		const { createApp } = Vue
+
+		createApp({
+	    	data() {
+	      		return {
+			        publications: [
+						{
+							authors: "Yu.G. Rapoport, O.K. Cheremnykh, V.V. Koshovy, M.O. Melnik, O.L. Ivantyshyn, R.T. Nogach, Yu.A. Selivanov, V.V. Grimalsky, V.P. Mezentsev, L.M. Karataeva, V. Ivchenko, G.P. Milinevsky, V.N. Fedun, E.N. Tkachenko",
+							title: "Ground-based acoustic parametric generator impact on the atmosphere and ionosphere in an active experiment",
+							info: "Ann. Geophys., 35, 53-70, doi:10.5194/angeo-35-53-2017, 2017",
+							year: 2017,
+							platform:"Ann. Geophys.",
+							type: PUBLICATION_TYPE_PAPER,
+						},
+						{
+							authors: "Yu. Rapoport, Yu. Selivanov, V. Ivchenko, V. Grimalsky, E. Tkachenko, A. Rozhnoi, V. Fedun",
+							title: "Excitation of planetary electromagnetic waves in the inhomogeneous ionosphere",
+							info: "Ann. Geophys., 32, 449-463, doi:10.5194/angeo-32-449-2014, 2014",
+							year: 2014,
+							platform:"Ann. Geophys.",
+							type: PUBLICATION_TYPE_PAPER,
+						},
+						{
+							authors: "A.D. Boardman, A. Alberucci, G. Assanto, Yu.G. Rapoport, V.V. Grimalsky, V.M. Ivchenko, E.N. Tkachenko",
+							title: "Spatial Solitonic and Nonlinear Plasmonic Aspects of Metamaterials",
+							info: "World Scientific Handbook of Metamaterials and Plasmonics, 4, pp. 419-469",
+							year: 2017,
+							platform: "",
+							type: PUBLICATION_TYPE_CHAPTER,
+						},
+						{
+							authors: "Yu.G. Rapoport, O.K. Cheremnykh, Yu.A. Selivanov, A.K. Fedorenko, V.M. Ivchenko, V.V. Grimalsky, E.N. Tkachenko",
+							title: "Modeling AGW and PEMW in inhomogeneous atmosphere and ionosphere",
+							info: "2012 International Conference on Mathematical Methods in Electromagnetic Theory, IEEE, pp. 577-580, 2012",
+							year: 2012,
+							platform:"IEEE",
+							type: PUBLICATION_TYPE_CONFERENCE_PAPER,
+						},
+						{
+							authors: "D. Koutroumpa, H.K. Connor, R. Modolo, S. Sembay, Y. Tkachenko",
+							title: "Solar wind charge exchange X-ray imaging of the magnetosphere: comparison of the MHD and test-particle approaches",
+							info: "44th COSPAR Scientific Assembly, 16-24 July 44, 1653",
+							year: 2022,
+							platform:"COSPAR",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+						{
+							authors: "Y. Tkachenko, A. Ciardi, B. Khiar",
+							title: "MHD simulations of Magnetoplasmadynamic Thruster",
+							info: "59th Culham Summer School, Culham, UK, 17-28 July",
+							year: 2022,
+							platform: "Culham Science Centre",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+						{
+							authors: "Y. Tkachenko, D. Koutroumpa, R. Modolo, H.K. Connor, S. Sembay",
+							title: "Charge exchange x-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
+							info: "SF2A-2021: Proceedings of the Annual meeting of the French Society of Astronomy and Astrophysics. Eds.: A. Siebert, pp. 487-490",
+							year: 2021,
+							platform:"SF2A",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+					],
+					conferences: [
+						{
+							authors: "Yu.G. Rapoport, O.K. Cheremnykh, Yu.A. Selivanov, A.K. Fedorenko, V.M. Ivchenko, V.V. Grimalsky, E.N. Tkachenko",
+							title: "Modeling AGW and PEMW in inhomogeneous atmosphere and ionosphere",
+							info: "2012 International Conference on Mathematical Methods in Electromagnetic Theory, IEEE, pp. 577-580, 2012",
+							year: 2012,
+							platform:"IEEE",
+							type: PUBLICATION_TYPE_CONFERENCE_PAPER,
+						},
+						{
+							authors: "D. Koutroumpa, H.K. Connor, R. Modolo, S. Sembay, Y. Tkachenko",
+							title: "Solar wind charge exchange X-ray imaging of the magnetosphere: comparison of the MHD and test-particle approaches",
+							info: "44th COSPAR Scientific Assembly, 16-24 July 44, 1653",
+							year: 2022,
+							platform:"COSPAR",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+						{
+							authors: "Y. Tkachenko, A. Ciardi, B. Khiar",
+							title: "MHD simulations of Magnetoplasmadynamic Thruster",
+							info: "59th Culham Summer School, Culham, UK, 17-28 July",
+							year: 2022,
+							platform: "Culham Science Centre",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+						{
+							authors: "Y. Tkachenko, D. Koutroumpa, R. Modolo, H.K. Connor, S. Sembay",
+							title: "Charge exchange x-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
+							info: "SF2A-2021: Proceedings of the Annual meeting of the French Society of Astronomy and Astrophysics. Eds.: A. Siebert, pp. 487-490",
+							year: 2021,
+							platform:"SF2A",
+							type: PUBLICATION_TYPE_POSTER,
+						},
+						{
+							authors: "Rapoport et al.",
+							title: "Models of the atmospheric gravity wave-electromagnetic coupling and planetary electromagnetic waves in the ionosphere: progress in the development",
+							info: "Fourth UK-Ukraine-Spain Meeting on Solar Physics and Space Science, Kyiv, Ukraine, 28 August - 1 September, 2017",
+							year: 2017,
+							platform: "UK Solar Physics",
+						},
+						{
+							authors: "Mezentsev et al.",
+							title: "The influence of acoustic excitations in ionosphere on propagation of electromagnetic ULF waves",
+							info: "14th Ukrainian Conference on Space Research, Uzhgorod, Ukraine, September 8-12, 2014",
+							year: 2014,
+							platform: "SRI",
+						},
+						{
+							authors: "Tkachenko et al.",
+							title: "Dynamics of ionospheric response, comparison for different types of sources (in ukrainian)",
+							info: "International Conference “Astronomy and Space Physics in Kyiv University”, Kyiv, Ukraine, 23-26 May, 2017",
+							year: 2017,
+							platform: "ASP",
+							platrormLink: "http://www.observ.univ.kiev.ua/conference/",
+						},
+						{
+							authors: "Rapoport et al.",
+							title: "Quasistatic-photochemistry channel of the coupling in the Lithosphere-Atmosphere-Ionosphere-Magnetosphere (LAIM/MIAL) system and possible application to the spaceweather and seismoionospheric phenomena",
+							info: "Second UK-Ukraine Meeting on Solar Physics and Space Science, Kyiv, Ukraine, September 16-20, 2013",
+							year: 2013,
+							platform: "UK Solar Physics",
+						},
+						{
+							authors: "Tkachenko et al.",
+							title: "The excitation of Large-scale hydromagnetic structures in the ionosphere caused by different types of sources",
+							info: "XXIV Young Scientists’ Conference on Astronomy and Space Physics, Kyiv, Ukraine, April 24-29, 2017",
+							year: 2017,
+							platform: "YSC",
+							platformLink: "http://ysc.kiev.ua/",
+						},
+						{
+							authors: "Rapoport et al.",
+							title: "The new models of electromagnetic and hydromagnetic wave processes in the ionosphere. Possible applications to coupling phenomena in LAIM/MIAL system",
+							info: "Astronomy and Space Physics Annual International Conference, Kyiv, Ukraine, May 27-30, 2014",
+							year: 2014,
+							platform: "ASP",
+							platrormLink: "http://www.observ.univ.kiev.ua/conference/",
+						},
+						{
+							authors: "Tkachenko et al.",
+							title: "The theory and modeling MHD large-scale vortex-like excitations in the ionosphere",
+							info: "XXI Young Scientists’ Conference on Astronomy and Space Physics”, Kyiv, Ukraine, April 28 - May 3, 2014",
+							year: 2014,
+							platform: "YSC",
+							platformLink: "http://ysc.kiev.ua/",
+						},
+						{
+							authors: "Tkachenko et al.",
+							title: "Propagation of planetary electromagnetic waves and atmospheric-gravitational	waves in the Earth’s ionosphere, theory and modeling",
+							info: "XXII Young Scientists’ Conference on Astronomy and Space Physics, Kyiv, Ukraine, April 20-25, 2015",
+							year: 2015,
+							platform: "YSC",
+							platformLink: "http://ysc.kiev.ua/",
+						},
+						{
+							authors: "Rapoport et al.",
+							title: "The models of electromagnetic and acoustic seismoionospheric coupling and formation of ionospheric structures",
+							info: "15th Ukrainian Conference on Space Research, Odesa, Ukraine, August 24-28, 2015",
+							year: 2015,
+							platform: "SRI",
+						},
+						{
+							authors: "Rapoport et al.",
+							title: "Ionosphere as a sensitive indicator of powerful processes in the lower atmosphere/lithosphere, artificial acoustic influence and space weather, EMSEV 2014 International conference on electromagnetic phenomena associated withseismic and volcanic activities",
+							info: "Konstancin-Jeziorna, Poland, September 22 – 26, 2014",
+							year: 2014,
+							platform: "EMSEV",
+							platformLink: "https://emsev-iugg.org/",
+						},
+						{
+							authors: "Grimalsky et al.",
+							title: "New algorithm for the complex modeling seismoionospheric coupling and spaceweather influence on the ionosphere",
+							info: "International Conference ”Astronomy and Space Physics”, Kyiv, Ukraine, May 24-27, 2016",
+							year: 2016,
+							platform: "ASP",
+							platrormLink: "http://www.observ.univ.kiev.ua/conference/",
+						},
+						{
+							authors: "Tkachenko et al.",
+							title: "Magnetohydrodynamic waves excitation and propagation with initial mechanical perturbation, MHD large-scale structures. The comparison for the different points of the Earth’s ionosphere",
+							info: "XXIII Young Scientists’ Conference on Astronomy and Space Physics, Kyiv, Ukraine, April 25-30, 2016",
+							year: 2016,
+							platform: "YSC",
+							platformLink: "http://ysc.kiev.ua/",
+						},	
+					],
+			  	}
+			},
+		  	beforeMount: function() {
+		  		this.publications = this.publications.sort(function(a, b) {
+		  			return a.year < b.year ? 1 : -1;
+		  		})
+
+		  		this.conferences = this.conferences.sort(function(a, b) {
+		  			return a.year < b.year ? 1 : -1;
+		  		})
+		  	}
+	  }).mount('#app')
+	</script>
+
+</body>
+</html>
