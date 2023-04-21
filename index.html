@@ -617,7 +617,8 @@
   /*#menu-toggle ~ .menu input:checked + ul li {*/
     height: 0;
     margin: 0;
-    padding: 0 0.5em;
+    padding: 0 50px;
+    /*0.5em;*/
     border: 0;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     overflow: hidden;
@@ -625,9 +626,9 @@
 
   #menu-toggle:checked ~ .menu li,
   #menu-toggle:checked ~ .menu input:checked + ul li {
-    border: 1px solid #333;
+    border-bottom: 1px solid #333;
     height: 2.5em;
-    padding: 0.5em;
+    padding: 0.5em 50px;
     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
     display: block;
     /*overflow: visible;*/
@@ -635,7 +636,7 @@
 
 
 	#menu-toggle:checked ~ .menu input:checked + ul li {
-		padding-left: 50px;
+		padding-left: 100px;
 	}
 
 
@@ -663,7 +664,7 @@
     color: white;
     background-color: #222;
   }
-  .menu li:not(:last-child) {
+  .menu .dropdown__wrapper:not(:last-child) li {
     border-bottom: 1px solid #444;
   }
 }
