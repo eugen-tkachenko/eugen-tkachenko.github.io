@@ -15,6 +15,10 @@
 
 	<style type="text/css">
 
+		body {
+			font-size: 18px;
+		}
+
 		h1, h2 {
 			margin:0;
 			padding:0;
@@ -32,6 +36,8 @@
 			width: 100%;
 			transition: transform 0.25s ease-in-out;
 			/*font-style: italic;*/
+			z-index: 200;
+			border-bottom: 2px solid black;
   		}
 
 		header .d-flex.justify-content-between > div {
@@ -49,6 +55,15 @@
 			margin-right: 30px;
 			font-size: 20px;
 			text-decoration: none;
+			display: block ruby;
+		}
+
+		header .d-flex.justify-content-between .dropdown > * {
+			display: block;
+		}
+
+		header .d-flex.justify-content-between .dropdown-content a {
+			margin-right: 0px;
 		}
 
 		header .d-flex.justify-content-between .dropdown a {
@@ -79,8 +94,8 @@
 		#home_link {
 			text-decoration: none;
 			font-style: italic;
-			color: #4dff4d;
-			width: 50%;
+			color: #1c2027;
+			/*width: 50%;*/
 			font-family: Harlow;
 		}
 
@@ -206,7 +221,17 @@
 		}
 
 		#industry_experience img {
-			width: 100%;
+			width: 50%;
+			max-width: 200px;
+			display: block;
+			margin: auto;
+			padding-bottom: 20px;
+		}
+
+		@media (min-width: 768px) {
+			#industry_experience img {
+				width: 100%;
+			}
 		}
 
 		#industry_experience .company_position {
@@ -279,52 +304,97 @@
 			align-items: center;
 		}
 
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			left: 0px;
-			padding-top: 5px;
-			background-color: #006dcc;
-			/*width: 120%;*/
-			padding: 10px 20px;
-			margin-left: 20px;
-			box-sizing: content-box;
-		}
-
 		.dropdown-content a { 
 			display: block;
 		}
 
-		.dropdown:hover .dropdown-content {
-			display: block;
+		.main a:hover {
+			color: gold;
+		}
+
+		.menu li:hover a,
+		.menu li:hover label {
+			color: #006dcc;
+		}
+
+		@media (min-width: 1001px) {			
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				top: 30px;
+				left: 50%;
+				transform: translate(-50%);
+				background-color: #006dcc;
+				padding: 20px 20px;
+				/*padding-top: 30px;*/
+				box-sizing: content-box;
+				/*border-radius: 10px;*/
+				/*border: 2px solid black;*/
+				border-top: none;
+				border-radius: 20px 20px 30px 30px;
+			}
+
+			.dropdown__wrapper:hover .dropdown-content {
+				display: block;
+			}
+
+			.menu li:hover a,
+			.menu li:hover label {
+				color: gold;
+			}
+
+			.dropdown__content_border {
+				border: 2px solid black;
+				position: absolute;
+				width: 101%;
+				height: 110px;
+				transform: translate(-22px, -15px);
+				top: 50px;
+				border-radius: 0px 0px 30px 30px;
+				border-top: none;
+				z-index: 100;
+			}
+
+			#input_industry + .dropdown-content .dropdown__content_border {
+				height: 74px;
+			}
+
+			.dropdown__wrapper:hover .down {
+				display: none;
+			}
+
+			.dropdown__wrapper:hover .up {
+				display: inline;
+			}
+
 		}
 
 		.dropdown .dropdown-content ul {
-			padding-left: 10px;
+			/*padding-left: 10px;*/
 			list-style: disclosure-closed;
 			color: #FFF;
 			margin: 0px;
-			margin-left: 20px;
+			padding: 5px;
+			/*margin-left: 20px;*/
 		}
 
-		.dropdown .dropdown-content ul li {
+		.dropdown__wrapper .dropdown-content li {
 			margin-bottom: 5px;
+			border-bottom: 1px solid white;
+			padding-bottom: 1px;
+			position: relative;
+			z-index: 200;
 		}
 
-		.dropdown .dropdown-content ul li:last-child {
+		.dropdown__wrapper .dropdown-content li:last-child {
 			margin-bottom: 0px;
+			padding-bottom: 0px;
+			/*border: 0;*/
 		}
 
 		.up {
 			display: none;
-		}
-
-		.dropdown:hover .down {
-			display: none;
-		}
-
-		.dropdown:hover .up {
-			display: inline;
 		}
 
 		.main .location {
@@ -373,6 +443,19 @@
 			flex-flow: row wrap;
 		}
 */
+
+		footer .sitemap_container {
+			/*text-align: center*/
+			padding-left: 30%;
+		}
+
+		@media  (min-width: 576px) {
+			footer .sitemap_container {
+				/*text-align: center*/
+				padding-left: unset;
+			}
+		}
+
 		footer .row > div > div:first-child {
 			text-align: center;
 		}
@@ -381,8 +464,12 @@
 			margin-bottom: 20px;
 		}
 
+		footer .links a {
+			text-decoration: none;
+		}
+
 		footer div a {
-			/*padding-right:20px;*/
+			/*padding-right:20px;
 			text-decoration:none;
 		}
 
@@ -394,16 +481,187 @@
 
 		footer div a [class^="icon-"]:last-child {
 			padding-right:0;
+			font-size: 24px;
+		}
+
+		footer > .container > .row > div {
+			margin-bottom: 20px;
+		}
+
+		footer > .container > .row > div > div:first-child {
+			margin-bottom: 20px;
 		}
 
 	</style>
 
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+	<style>
+		.top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /*background-color: #00BAF0;*/
+  /*background: linear-gradient(to left, #f46b45, #eea849);*/
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FFF;
+  height: 50px;
+  padding: 1em;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > div {
+	position: relative;
+	width: 100%;
+}
+
+.menu li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle,
+[type=checkbox] {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 1000px) {
+
+	.up,
+	.down,
+	.dropdown:hover .up,
+	.dropdown:hover .down {
+		display: none;
+	}
+
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 100px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #menu-toggle ~ .menu .dropdown,
+  /*#menu-toggle ~ .menu .dropdown > *,*/
+  #menu-toggle ~ .menu li,
+  /*#menu-toggle:checked ~ .menu ul li,*/
+  #menu-toggle ~ .menu input + ul,
+  #menu-toggle ~ .menu input + ul li {
+  /*#menu-toggle ~ .menu input:checked + ul li {*/
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+  }
+
+  #menu-toggle:checked ~ .menu li,
+  #menu-toggle:checked ~ .menu input:checked + ul li {
+    border: 1px solid #333;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    /*overflow: visible;*/
+  }
+
+
+	#menu-toggle:checked ~ .menu input:checked + ul li {
+		padding-left: 50px;
+	}
+
+
+  	/*display: inline-table;*/
+  #menu-toggle:checked ~ .menu input:checked + ul {
+  	width: 100%;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .menu li,
+  .menu input:checked + ul li {
+    display: inline-table;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #222;
+  }
+  .menu li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+}
+
+	</style>
+
 	<header id="header" class="header">
 		<div class="container">
 			<div class="row">
-				<div class="d-flex justify-content-between"> 
+				<div class="d-flex justify-content-between top-nav"> 
 					<a id="home_link" href="index.html" title="">						
 						<!-- <span id="name_first">E</span> -->
 						<h1>
@@ -412,24 +670,73 @@
 							<p id="name"><span style="font-family: URW Chancery L, cursive; font-size: 70px">Y</span>evhen TKACHENKO</p>
 						</h1>
 					</a>
+				    <input id="menu-toggle" type="checkbox" />
+				    <label class='menu-button-container' for="menu-toggle">
+				    	<div class='menu-button'></div>
+			    	</label>
 					<!-- <span>Eugene (Yevhen) TKACHENKO's<br>personal web space</span> -->
-					<div>
-						<div class="dropdown">
-							<a href="#academic" title="">Academic</a>
-							<span class="up">&#9650;</span>
-							<span class="down">&#9660;</span>
+					<ul class="menu">
+						<div class="dropdown__wrapper">
+						<li class="dropdown">
+							<label for="input_academic">Academic
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</label>
+						</li>
+						<input id="input_academic" type="checkbox" />
+						<ul class="dropdown-content">
+							<div class="dropdown__content_border"></div>
+							<li><a href="#academic">Career</a></li>
+							<li><a href="#publications">Publications</a></li>
+							<li><a href="#conferences">Conferences</a></li>
+						</ul>
+						</div>
+						<div class="dropdown__wrapper">
+						<li class="dropdown">
+							<label for="input_industry">Industry
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</label>
+						</li>
+						<input id="input_industry" type="checkbox" />
+						<ul class="dropdown-content">
+							<div class="dropdown__content_border"></div>
+							<li><a href="#industry">Experience</a></li>
+							<li><a href="#technology_stack">Technology stack</a></li>
+						</ul>
+						</div>
+						<div class="dropdown__wrapper">
+						<li class="dropdown">
+							<label for="input_education">Education
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</label>
+						</li>
+						<input id="input_education" type="checkbox" />
+						<ul class="dropdown-content">
+							<div class="dropdown__content_border"></div>
+							<li><a href="#upmc">PhD</a></li>
+							<li><a href="#orleans">Master 2</a></li>
+							<li><a href="#knu">Bachelor&#160;& Master</a></li>
+						</ul>
+						</div>
+					</ul>
+					<!-- <div class="menu"> -->
+<!-- 						<div class="dropdown">
+							<a href="#academic" title="">Academic
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</a>
 							<div class="dropdown-content">
 								<ul>
-								<li><a href="#academic">Career</a></li>
-								<li><a href="#publications">Publications</a></li>
-								<li><a href="#conferences">Conferences</a></li>
 							</ul>
 							</div>
 						</div>
 						<div class="dropdown">
-							<a href="#industry" title="Industry Experience">Industry</a>
-							<span class="up">&#9650;</span>
-							<span class="down">&#9660;</span>
+							<a href="#industry" title="Industry Experience">Industry
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</a>
 							<div class="dropdown-content">
 								<ul>
 									<li><a href="#industry">Experience</a></li>
@@ -438,9 +745,10 @@
 							</div>
 						</div>
 						<div class="dropdown">
-							<a href="" title="">Education</a>
-							<span class="up">&#9650;</span>
-							<span class="down">&#9660;</span>
+							<a href="" title="">Education
+								<span class="up">&#9650;</span>
+								<span class="down">&#9660;</span>
+							</a>
 							<div class="dropdown-content">
 								<ul>
 									<li><a href="#upmc">PhD</a></li>
@@ -449,8 +757,8 @@
 								</ul>
 							</div>
 						</div>
-						<!-- <a href="" title=""></a> -->
-					</div>
+ -->						<!-- <a href="" title=""></a> -->
+					<!-- </div> -->
 				</div>
 			</div>
 		</div>
@@ -466,18 +774,22 @@
 
 		<div id="industry_experience" class="row">
 			<div class="row">
-				<div class="col-1">
-					<img src="./assets/images/work/shipoko.jpg" alt="Shipoko" style="margin: -50px 0px; z-index: -1; position: relative;">
+				<div class="col-12 col-md-2">
+					<a href="https://shipoko.com/" target="_blank">
+						<img src="./assets/images/work/shipoko.jpg" alt="Shipoko"> 
+					</a>
 				</div>
-				<div class="col-2">
-					Shipoko
+				<div class="col-2 d-none d-md-block">
+					<a href="https://shipoko.com/" target="_blank">
+						Shipoko
+					</a>
 				</div>
-				<div class="col-3">
+				<div class="col-6 col-md-3">
 					<p class="company_position">Full Stack Web Developer</p>
 					Jul 2020 - Sep 2020<br>
 					(3 months)
 				</div>
-				<div class="col-6">
+				<div class="col-6 col-md-5">
 					B2B Logistical solutions for Web<br>
 					<ul>
 						<li>Application and DB design and scaling</li>
@@ -488,19 +800,21 @@
 			</div>
 			<hr class="separator">
 			<div class="row">
-				<div class="col-1">
-					<img src="./assets/images/work/asabix.svg" alt="Asabix">
+				<div class="col-12 col-md-2">
+					<a href="https://asabix.com/" target="_blank">
+						<img src="./assets/images/work/asabix.svg" alt="Asabix">
+					</a>
 				</div>
-				<div class="col-2">
-					Asabix
+				<div class="col-2 d-none d-md-block">
+					<a href="https://asabix.com/" target="_blank">Asabix</a>
 				</div>
-				<div class="col-3">
+				<div class="col-6 col-md-3">
 					<p class="company_position">Backend Tech Lead,<br>
 					Full Stack Web Developer</p>
 					Sep 2017 - Mar 2020<br>
 					(2 years 7 months)
 				</div>
-				<div class="col-6">
+				<div class="col-6 col-md-5">
 					B2B, B2C solutions for Web<br>
 					<ul>
 						<li>Web Projects Development, as well from scratch</li>
@@ -511,18 +825,22 @@
 			</div>
 			<hr class="separator">
 			<div class="row">
-				<div class="col-1">
-					<img src="./assets/images/work/rit.png" alt="Ukrainian Scientific Center for IT Development">
+				<div class="col-12 col-md-2">
+					<a href="https://mon.gov.ua/eng" target="_blank">
+						<img src="./assets/images/work/rit.png" alt="Ukrainian Scientific Center for IT Development" style="width: 100px;">
+					</a>
 				</div>
-				<div class="col-2">
-					 Ukrainian Scientific Center for IT Development
+				<div class="col-2 d-none d-md-block">
+					<a href="https://mon.gov.ua/eng" target="_blank">
+						Ukrainian Scientific Center for IT Development (subordinated to the Ministry of Education and Science of Ukraine)
+					</a>
 				</div>
-				<div class="col-3">
-					<p class="company_position">Python Developmenteloper for ArcGIS</p>
+				<div class="col-6 col-md-3">
+					<p class="company_position">Python Developer for ArcGIS</p>
 					Feb 2017 - Dec 2017<br>
 					(11 months)
 				</div>
-				<div class="col-6">
+				<div class="col-6 col-md-5">
 					Logistical solutions<br>
 					<ul>
 						<li>Implementation of automatic routine for data processing and troubleshooting</li>
@@ -590,9 +908,9 @@
 					<!-- <img src="./assets/images/work/laravel.png" alt="laravel"> -->
 					<img class="mx-lg-0" src="./assets/images/work/design.jpg" alt="design">
 					<img class="mx-lg-0" src="./assets/images/work/oop.png" alt="oop">
+					<img class="mx-lg-0" src="./assets/images/work/api.png" alt="api">
 					<img class="mx-lg-0" src="./assets/images/work/redis.png" alt="redis">
 					<img class="mx-lg-0" src="./assets/images/work/regex.png" alt="regex">
-					<img class="mx-lg-0" src="./assets/images/work/api.png" alt="api">
 					<img class="mx-lg-0" src="./assets/images/work/symfony2.png" alt="symfony">
 					<img class="mx-lg-0" class="laravel" src="./assets/images/work/laravel3.png" alt="laravel">
 					<img class="mx-lg-0" src="./assets/images/work/yii2.png" alt="yii2">
@@ -1086,17 +1404,17 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-12 col-lg-6">
 					<div>Sitemap</div>
 					<div class="sitemap_container row">
-						<div class="col-4">
+						<div class="col-12 col-sm-4">
 							<a href="#industry" title="Industry Experience">Industry</a>
 							<ul>
 								<li><a href="#industry">Experience</a></li>
 								<li><a href="#technology_stack">Technology stack</a></li>
 							</ul>
 						</div>
-						<div class="col-4">
+						<div class="col-12 col-sm-4">
 							<a href="#academic" title="">Academic</a>
 							<ul>
 								<li><a href="#academic">Career</a></li>
@@ -1104,7 +1422,7 @@
 								<li><a href="#conferences">Conferences</a></li>								
 							</ul>
 						</div>
-						<div class="col-4">
+						<div class="col-12 col-sm-4">
 							<a href="" title="">Education</a>
 							<ul>
 								<li><a href="#upmc">PhD</a></li>
@@ -1115,37 +1433,42 @@
 					</div>
 
 				</div>
-				<div class="col-3">
+				<div class="col-12 col-md-6 col-lg-3">
 					<div>Links</div>
 					<br>
 					<div class="row d-flex justify-content-between links">
-						<div class="col-12 d-flex justify-content-around">
+						<div class="col-2 col-md-6 d-flex justify-content-around">
 							<a target="_blank" href="https://www.linkedin.com/in/yevhentkachenko/" title="LinkedIn">
 								<i class="icon-linkedin"></i>
 							</a>
+						</div>
+						<div class="col-2 col-md-6 d-flex justify-content-around">
 							<a target="_blank" href="https://www.researchgate.net/profile/Yevhen-Tkachenko" title="ResearchGate">
 								<i class="icon-researchgate"></i>
 							</a>
 						</div>
-						<div class="col-12 d-flex justify-content-around">
+						<div class="col-2 col-md-6 d-flex justify-content-around">
 							<a target="_blank" href="https://orcid.org/0000-0002-1864-9364" title="Orcid">
 								<i class="icon-orcid"></i>
 							</a>
-							<a target="_blank" href="https://scholar.google.com/citations?user=CyuGFYMAAAAJ" title="GoogleScholar">
+						</div>
+						<div class="col-2 col-md-6 d-flex justify-content-around">							<a target="_blank" href="https://scholar.google.com/citations?user=CyuGFYMAAAAJ" title="GoogleScholar">
 								<i class="icon-googlescholar"></i>
 							</a>
 						</div>
-						<div class="col-12 d-flex justify-content-around">
+						<div class="col-2 col-md-6 d-flex justify-content-around">
 							<a target="_blank" href="https://github.com/eugen-tkachenko" title="github">
 								<i class="icon-github"></i>
 							</a>
+						</div>
+						<div class="col-2 col-md-6 d-flex justify-content-around">
 							<a href="mailto:eugen.n.tkachenko@gmail.com?subject=greetings" title="Email me">
 								<i class="icon-gmail"></i>
 							</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-3 text-center">
+				<div class="col-12 col-md-6 col-lg-3 text-center">
 					<div>About</div>
 					<br>
 					<div>This is the homepage of<br>
@@ -1158,6 +1481,8 @@
 	</footer>
 
 	<script>
+
+		// header pin
 
 		var lastKnownScrollY = 0;
 		var currentScrollY = 0;
@@ -1204,9 +1529,29 @@
 		  document.addEventListener('scroll', onScroll, false);
 		}
 
-		const PUBLICATION_TYPE_PAPER 				= 0;
+		// no jQuery approach to the burger menu dynamics =)
+
+		var elements = document.querySelectorAll('.menu .dropdown-content a');
+
+		for (element of elements)
+			element.addEventListener("click", function(e) {
+				
+			    // document.getElementById("header").classList.add("header-unpin")
+
+			    // unpin();
+
+	    		inputs = document.querySelectorAll("header [type=checkbox]")
+
+	    		for (input of inputs)
+	    			input.checked = false;
+
+			}, false);
+
+		// publications/conferences
+
+		const PUBLICATION_TYPE_PAPER 			= 0;
 		const PUBLICATION_TYPE_CHAPTER 			= 1;
-		const PUBLICATION_TYPE_CONFERENCE_PAPER 	= 2;
+		const PUBLICATION_TYPE_CONFERENCE_PAPER = 2;
 		const PUBLICATION_TYPE_POSTER 			= 3;
 
 		function sortByKey(array, key) {
@@ -1281,7 +1626,7 @@
 						},
 						{
 							authors: "Y. Tkachenko, D. Koutroumpa, R. Modolo, H.K. Connor, S. Sembay",
-							title: "Charge exchange x-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
+							title: "Charge exchange X-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
 							info: "SF2A-2021: Proceedings of the Annual meeting of the French Society of Astronomy and Astrophysics. Eds.: A. Siebert, pp. 487-490",
 							year: 2021,
 							platform:"SF2A",
@@ -1324,7 +1669,7 @@
 						},
 						{
 							authors: "Y. Tkachenko, D. Koutroumpa, R. Modolo, H.K. Connor, S. Sembay",
-							title: "Charge exchange x-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
+							title: "Charge exchange X-ray emission in the near-earth environment: Simulations in preparation for the smile magnetospheric mission",
 							info: "SF2A-2021: Proceedings of the Annual meeting of the French Society of Astronomy and Astrophysics. Eds.: A. Siebert, pp. 487-490",
 							year: 2021,
 							platform:"SF2A",
