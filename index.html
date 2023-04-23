@@ -102,8 +102,10 @@
 		}
 
 		#name_first {
-			float: left;
+			/*float: left;*/
 			font-size: 5rem;
+			font-family: URW Chancery L, cursive; 
+			font-size: 70px;
 		}
 
 		#name {
@@ -283,7 +285,9 @@
 		}
 
 		.workplace_name{
-			font-size: 22px;
+			font-size: 25px;
+			margin-bottom: 20px;
+			display: block;
 			/*font-size: 35px;
 			font-style: italic;
 			font-weight: bold;
@@ -291,6 +295,14 @@
 			text-align: center;
 			display: block;
 */		}
+
+		.workplace_name + p {
+			margin-bottom: 20px;
+		}
+
+		.workplace_img img {
+			width: 100%;
+		}
 
 		.main > .row:not(.title_row) {
 			padding: 20px;
@@ -301,14 +313,27 @@
 		}
 
 		@media (max-width: 576px) {			
-			header {
+/*			header {
 				max-height: 150px;
 			}
-
-			.main {
-				padding-top: 190px;
+*/
+			#info {
+				font-size: 16px;
 			}
 
+			#name_first {
+				font-size: 50px;
+			}
+
+			#name {
+				font-size: 1rem;
+				margin-left: 20px;
+			}
+
+/*			.main {
+				padding-top: 190px;
+			}
+*/
 			.main > .row:not(.title_row) {
 				margin-left: 5px;
 				margin-right: 5px;
@@ -321,6 +346,11 @@
 */
 			.main .work .logo_container {
 				height: auto;
+			}
+
+			.main .work img {
+				margin: 0px;
+				margin-bottom: 10px;
 			}
 
 		}
@@ -337,6 +367,7 @@
 			padding-right: 30px;
 		}
 
+		.d-flex.justify-content-around,
 		.d-flex.justify-content-between {
 			align-items: center;
 		}
@@ -717,7 +748,7 @@
 						<h1>
 							<p id="info">Personal webspace of </p>
 							<!-- <br> -->
-							<p id="name"><span style="font-family: URW Chancery L, cursive; font-size: 70px">Y</span>evhen TKACHENKO</p>
+							<p id="name"><span id="name_first">Y</span>evhen TKACHENKO</p>
 						</h1>
 					</a>
 				    <input id="menu-toggle" type="checkbox" />
@@ -1050,24 +1081,12 @@
 		<div id="upmc" class="row">
 
 			<div class="col-lg-7 mb-4 mb-lg-0">
-				<img src="./assets/images/upmc.jpg" alt="">
-			</div>
-			<div class="col-lg-5">
-				<div class="d-flex justify-content-between"> 
-					<!-- <p> -->
-						<a  class="workplace_name"
-							target="_blank" 
-							href="https://lerma.obspm.fr/?lang=fr" 
-							title="">
-							LERMA
-						</a>
-					<!-- </p> -->
-					<!-- <div style="width: 80%"> -->
-						<img class="col-5" src="./assets/images/logo/logo_lerma.png" alt="LERMA">
-						<img class="col-3" src="./assets/images/logo/logo_SU.png" alt="Sorbonne Université">
-						<img class="col-3" src="./assets/images/logo/cnrs.png" alt="CNRS" style="width: 15%">
-					<!-- </div> -->
-				</div>
+				<a  class="workplace_name"
+					target="_blank" 
+					href="https://lerma.obspm.fr" 
+					title="">
+					LERMA
+				</a>
 				<p> 
 					<small> 
 						<i>
@@ -1075,46 +1094,70 @@
 						</i> 
 					</small> 
 				<p>
+
+				<img src="./assets/images/upmc.jpg" alt="">
+			</div>
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-around"> 
+					<!-- <p> -->
+<!-- 						<a  class="workplace_name"
+							target="_blank" 
+							href="https://lerma.obspm.fr" 
+							title="">
+							LERMA
+						</a>
+ -->					<!-- </p> -->
+					<!-- <div style="width: 80%"> -->
+						<a class="col-6 workplace_img"
+							target="_blank" 
+							href="https://lerma.obspm.fr" 
+							title="">
+							<img class="" src="./assets/images/logo/logo_lerma.png" alt="LERMA">
+						</a>
+						<img class="col-3" src="./assets/images/logo/logo_SU.png" alt="Sorbonne Université">
+						<img class="col-3" src="./assets/images/logo/cnrs.png" alt="CNRS" style="width: 15%">
+					<!-- </div> -->
+				</div>
 				<div class="table">
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Position
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							PhD Student
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							University
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Sorbonne Université (Campus Pierre et Marie Curie)
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Affiliation
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Sorbonne Université,<br> Observatoire de Paris, <br>PSL Research University,<br> LERMA, CNRS UMR 8112						
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							University Ranking in 2021
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							<i class="location">In France</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Top 1,<br>
 							<i class="location">In the World</i>- Top 50 (43),<br>
-							accoring to <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2021" title="Round University Ranking">Round University Ranking</a>
+							accoring to the <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2021" title="Round University Ranking">Round University Ranking</a>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Address
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							4 place Jussieu<br>
 							75252 Paris Cedex 05<br>
 							France<br>
@@ -1135,11 +1178,18 @@
 					title="">
 					LATMOS
 				</a>
+				<p>
+					<small>
+						<i>
+							Laboratoire Atmosphères, Observations Spatiales
+						</i>
+					</small>
+				</p>
 
 				<img src="./assets/images/latmos.jpg" alt="">
 			</div>			
 			<div class="col-lg-5">
-				<div class="d-flex justify-content-between"> 
+				<div class="d-flex justify-content-around"> 
 					<!-- <p> -->
 <!-- 						<a  class="workplace_name"
 							target="_blank" 
@@ -1148,53 +1198,51 @@
 							LATMOS
 						</a>
  -->					<!-- </p> -->
-					<img class="col-4" src="./assets/images/logo/latmos.png" alt="LATMOS">
+					<a class="col-4 workplace_img"
+					target="_blank" 
+					href="https://www.latmos.ipsl.fr/index.php/en/" 
+					title="">
+						<img class="" src="./assets/images/logo/latmos.png" alt="LATMOS">
+					</a>
 					<img class="col-3" src="./assets/images/logo/logo_SU.png" alt="Sorbonne Université">
 					<img class="col-3" src="./assets/images/logo/cnrs.png" alt="CNRS" style="width: 15%">
 
 				</div>
-				<p>
-					<small>
-						<i>
-							Laboratoire Atmosphères, Observations Spatiales
-						</i>
-					</small>
-				</p>
 				<div class="row">
 					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
 					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
 				</div>
 				<div class="table">
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Position
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Intern
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Thesis
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Emissions X dans l’environnement proche de la Terre: Simulations numériques en préparation de la mission SMILE
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Period
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							March 2021 - 
 							July 2021
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Address
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							4 place Jussieu<br>
 							75252 Paris Cedex 05<br>
 							France<br>
@@ -1209,21 +1257,13 @@
 		<div id="lpcee" class="row">
 			
 			<div class="col-lg-7 mb-4 mb-lg-0">
-				<img src="./assets/images/lpcee.jpg" alt="LPCEE">
-			</div>
-			<div class="col-lg-5">
-				<div class="d-flex justify-content-between"> 
-					<!-- <p> -->
-						<a  class="workplace_name"
-							target="_blank" 
-							href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiX49bUmKP6AhUHhhoKHX67A3EQFnoECAgQAQ&url=https%3A%2F%2Fwww.lpc2e.cnrs.fr%2F&usg=AOvVaw2UtTkQQA4DF3Il7lb_taY4" 
-							title="LPCEE">
-							LPCEE
-						</a>
-					<!-- </p> -->
-					<img class="col-3" src="./assets/images/logo/lpcee.jpeg" alt="LPCEE" style="width: 15%">
-					<img class="col-3" src="./assets/images/logo/cnrs.png" alt="CNRS" style="width: 15%">
-				</div>
+
+				<a class="workplace_name"
+					target="_blank" 
+					href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiX49bUmKP6AhUHhhoKHX67A3EQFnoECAgQAQ&url=https%3A%2F%2Fwww.lpc2e.cnrs.fr%2F&usg=AOvVaw2UtTkQQA4DF3Il7lb_taY4" 
+					title="LPCEE">
+					LPCEE
+				</a>
 				<p>
 					<small>
 						<i>
@@ -1231,41 +1271,56 @@
 						</i>
 					</small>
 				</p>
+
+				<img src="./assets/images/lpcee.jpg" alt="LPCEE">
+			</div>
+			<div class="col-lg-5">
+				<div class="d-flex justify-content-around"> 
+					<!-- <p> -->
+					<!-- </p> -->
+					<a class="col-3 workplace_img"
+							target="_blank" 
+							href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiX49bUmKP6AhUHhhoKHX67A3EQFnoECAgQAQ&url=https%3A%2F%2Fwww.lpc2e.cnrs.fr%2F&usg=AOvVaw2UtTkQQA4DF3Il7lb_taY4" 
+							title="LPCEE">
+						<img class="" src="./assets/images/logo/lpcee.jpeg" alt="LPCEE" style="width: 50%">
+					</a>
+					<img class="col-3" src="./assets/images/logo/cnrs.png" alt="CNRS" style="width: 15%">
+				</div>
 				<div class="row">
 					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
 					<!-- <img class="col-4" src="./assets/images/logo/orleans_1.png" alt="Université d'Orléans"> -->
 				</div>
 				<div class="table">
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Position
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Intern
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Thesis
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 						 	Détecteur de rayons gamma STRATELEC
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Period
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							January 2021 - 
 							February 2021
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Address
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							3 Av. de la Recherche Scientifique<br>
 							45071 Orléans<br>
 							France<br>
@@ -1279,19 +1334,34 @@
 		<div id="orleans" class="row">
 
 			<div class="col-lg-7 mb-4 mb-lg-0 order-lg-1">
+				<a  class="workplace_name"
+					target="_blank" 
+					href="https://www.univ-orleans.fr" 
+					title="">
+					Université d'Orléans
+				</a>
+
 				<img src="./assets/images/orleans.jpg" alt="">
 			</div>			
 			<div class="col-lg-5">
-				<div class="d-flex justify-content-between"> 
-					<p>
+				<div class="d-flex justify-content-around"> 
+<!-- 					<p>
 						<a  class="workplace_name"
 							target="_blank" 
-							href="https://lerma.obspm.fr/?lang=fr" 
+							href="https://lerma.obspm.fr" 
 							title="">
 							Université d'Orléans
 						</a>
 					</p>
-					<img class="col-4" src="./assets/images/logo/orleans_2.png" alt="Université d'Orléans">
+ -->					
+
+					<a class="col-4 workplace_img"
+						target="_blank" 
+						href="https://www.univ-orleans.fr" 
+						title="">
+						
+							<img class="" src="./assets/images/logo/orleans_2.png" alt="Université d'Orléans">
+					</a>
 				</div>
 				<div class="row">
 					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
@@ -1299,53 +1369,53 @@
 				</div>
 				<div class="table">
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Dispoma
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Master in Space Science
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							<a href="#latmos" title="LATMOS">Internship 2 Thesis</a>
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Emissions X dans l’environnement proche de la Terre: Simulations numériques en préparation de la mission SMILE
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							<a href="#lpcee" title="LPCEE">Internship 1 Thesis</a>
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Détecteur de rayons gamma STRATELEC
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Period
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							October 2020 - 
 							July    2021		
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							University Ranking in 2020
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							<i class="location">In France</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Top 50 (39),<br>
 							<i class="location">In the World</i>- Top 1000 (840),<br>
-							accoring to <a target="_blank" href="https://cwur.org/2020-21/University-of-Orl%C3%A9ans.php" title="World University Rankings">World University Rankings</a>
+							accoring to the <a target="_blank" href="https://cwur.org/2020-21/University-of-Orl%C3%A9ans.php" title="World University Rankings">World University Rankings</a>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Address
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Château de la Source<br>
 							Avenue du Parc Floral<br>
 							45067 Orléans Cedex 2<br>
@@ -1360,19 +1430,23 @@
 		<div id="knu" class="row">
 			
 			<div class="col-lg-7 mb-4 mb-lg-0">
+				<a  class="workplace_name"
+					target="_blank" 
+					href="https://knu.ua/en/" 
+					title="Taras Shevchenko National University of Kyiv">
+					Taras Shevchenko National<br> University of Kyiv
+				</a>
+
 				<img src="./assets/images/knu_red.jpg" alt="">
 			</div>
 			<div class="col-lg-5">
-				<div class="d-flex justify-content-between"> 
-					<p>
-						<a  class="workplace_name"
-							target="_blank" 
-							href="https://knu.ua/en/" 
-							title="Taras Shevchenko National University of Kyiv">
-							Taras Shevchenko National<br> University of Kyiv
-						</a>
-					</p>
-					<img class="col-3" src="./assets/images/logo/knu.png" alt="Taras Shevchenko National University of Kyiv">
+				<div class="d-flex justify-content-around"> 
+					<a class="col-3 workplace_img"
+						target="_blank" 
+						href="https://knu.ua/en/" 
+						title="Taras Shevchenko National University of Kyiv">
+							<img class="" src="./assets/images/logo/knu.png" alt="Taras Shevchenko National University of Kyiv">
+					</a>
 				</div>
 				<div class="row">
 					<!-- <img class="col-4" src="./assets/images/logo/orleans.png" alt="Université d'Orléans"> -->
@@ -1380,48 +1454,48 @@
 				</div>
 				<div class="table">
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Dispomas
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Master in Space Physics (with honour)<br>
 							Bachelor in Physics
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Thesis
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 						 	Nonline ar wave processes in inhomogeneous ionosphere
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Period
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							September 2011 - 
 							July      2017		
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							University Ranking in 2011
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							<i class="location">In Ukraine</i>&nbsp;&nbsp;&nbsp; - Top 1,<br>
 							<i class="location">In the World</i>- Top 500 (468),<br>
-							accoring to <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2011" title="Round University Ranking">Round University Ranking</a>
+							accoring to the <a target="_blank" href="https://roundranking.com/ranking/world-university-rankings.html#world-2011" title="Round University Ranking">Round University Ranking</a>
 							<!-- <i class="location">In the World</i>- Top 1000 (778),<br> -->
-							<!-- accoring to <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjp6vPQqZ76AhUK04UKHZFFDDcQFnoECAQQAQ&url=https%3A%2F%2Fwww.scimagoir.com%2Frankings.php%3Fsector%3DHigher%2Beduc.%26country%3DUKR%26year%3D2005&usg=AOvVaw1FetKVpSUMvmuJbHFUblIt" title="Scimago Institutions Ranking">Scimago</a> -->
+							<!-- accoring to the <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjp6vPQqZ76AhUK04UKHZFFDDcQFnoECAQQAQ&url=https%3A%2F%2Fwww.scimagoir.com%2Frankings.php%3Fsector%3DHigher%2Beduc.%26country%3DUKR%26year%3D2005&usg=AOvVaw1FetKVpSUMvmuJbHFUblIt" title="Scimago Institutions Ranking">Scimago</a> -->
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							Address
 						</div>
-						<div class="col-9">
+						<div class="col-12 col-sm-9">
 							Akademika Hlushkova Ave, 4<br>
 							Kyiv<br>
 							Ukraine<br>
@@ -1442,7 +1516,10 @@
 		<div class="row publications_body">
 			<div v-for="(item, key) in publications" class="row">
 				<div class="col-lg-10">
-					<div class="authors">{{ (key + 1)}}) {{ item.authors }}</div>
+					<div class="authors">
+						<!-- {{ (key + 1)}})  -->
+						{{ item.authors }}
+					</div>
 					<div class="title">”{{ item.title }}”</div>
 					<div class="info">{{ item.info }}</div>
 				</div>
@@ -1461,7 +1538,10 @@
 		<div class="row publications_body">
 			<div v-for="(item, key)  in conferences" class="row">
 				<div class="col-lg-10">
-					<div class="authors">{{ (key + 1)}}) {{ item.authors }}</div>
+					<div class="authors">
+						<!-- {{ (key + 1)}})  -->
+						{{ item.authors }}
+					</div>
 					<div class="title">”{{ item.title }}”</div>
 					<div class="info">{{ item.info }}</div>
 				</div>
